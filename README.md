@@ -1,0 +1,73 @@
+import math
+
+# Define arithmetic functions
+def add(a, b):
+    return a + b
+
+def subtract(a, b):
+    return a - b
+
+def multiply(a, b):
+    return a * b
+
+def divide(a, b):
+    if b != 0:
+        return a / b
+    else:
+        return "Error! Division by zero."
+
+def power(a, b):
+    return a ** b
+
+def square_root(a):
+    if a >= 0:
+        return math.sqrt(a)
+    else:
+        return "Error! Cannot take square root of a negative number."
+
+# Calculator function
+def calculator():
+    while True:
+        print("\n=== Simple Calculator ===")
+        print("1. Add")
+        print("2. Subtract")
+        print("3. Multiply")
+        print("4. Divide")
+        print("5. Power (x^y)")
+        print("6. Square Root")
+        print("7. Quit")
+        
+        choice = input("Enter choice (1-7): ")
+        
+        if choice == '7':
+            print("Goodbye!")
+            break
+        
+        if choice == '6':
+            try:
+                num = float(input("Enter number: "))
+                print(f"The result is: {square_root(num)}")
+            except ValueError:
+                print("Error! Please enter a valid number.")
+        elif choice in ('1', '2', '3', '4', '5'):
+            try:
+                num1 = float(input("Enter first number: "))
+                num2 = float(input("Enter second number: "))
+                
+                if choice == '1':
+                    print(f"The result is: {add(num1, num2)}")
+                elif choice == '2':
+                    print(f"The result is: {subtract(num1, num2)}")
+                elif choice == '3':
+                    print(f"The result is: {multiply(num1, num2)}")
+                elif choice == '4':
+                    print(f"The result is: {divide(num1, num2)}")
+                elif choice == '5':
+                    print(f"The result is: {power(num1, num2)}")
+            except ValueError:
+                print("Error! Please enter valid numbers.")
+        else:
+            print("Invalid choice. Please select a valid option.")
+
+if __name__ == "__main__":
+    calculator()
